@@ -1,11 +1,13 @@
+import withLayout from 'hocs/withLayout';
+import Loader from '@components/Loader';
 import * as S from './styles';
 
 function Home() {
   return (
     <S.Container>
-      <h1>Home</h1>
+      <Loader />
     </S.Container>
   );
 }
 
-export default Home;
+export default withLayout(Home);

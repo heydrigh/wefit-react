@@ -14,7 +14,8 @@
       "@routes/*": ["routes/*"],
       "@schemas/*": ["schemas/*"],
       "@services/*": ["services/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@assets/*": ["assets/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

@@ -8,9 +8,10 @@ export default {
     huge: '5.6rem',
   },
   colors: {
+    background: '#2F2E41',
     primary: '#FCCD2A',
     secondary: '#1E5084',
-    tertiary: '#707070',
+    tertiary: '#999',
     warning: '#FAAD14',
     success: '#52C41A',
     error: '#CC1010',
