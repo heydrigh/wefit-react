@@ -23,6 +23,7 @@ function Home() {
     <S.Wrapper>
       {products?.map((product) => (
         <MovieCard
+          key={product.id}
           onClick={() => handleClick(product)}
           movie={product}
           itemQuantity={
