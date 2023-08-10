@@ -3,26 +3,25 @@ import { IButtonProps } from './types';
 
 const ButtonModifiers = {
   primary: (theme: DefaultTheme) => css`
-    background-color: ${theme.colors.secondary};
-    color: ${theme.colors.white};
+    background-color: ${theme.colors.primary};
   `,
-  secondary: (theme: DefaultTheme) => css`
-    border: 1px solid ${theme.colors.secondary};
-    color: ${theme.colors.secondary};
-    background-color: ${theme.colors.white};
+  success: (theme: DefaultTheme) => css`
+    background-color: ${theme.colors.success};
   `,
 };
 
 export const Wrapper = styled.button<Pick<IButtonProps, 'variant'>>`
   ${({ theme, variant }) => css`
-    height: 4.3rem;
+    position: relative;
+    height: 4rem;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.6rem 3rem;
-    border-radius: ${theme.border.radius.default};
-    font-size: ${theme.fonts.sizes.medium};
+    padding: 0.8rem;
     cursor: pointer;
+    border-radius: ${theme.border.radius.default};
+    color: ${theme.colors.white};
     ${!!variant && ButtonModifiers[variant](theme)}
   `}
 `;

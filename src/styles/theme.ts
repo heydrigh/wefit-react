@@ -9,15 +9,15 @@ export default {
   },
   colors: {
     background: '#2F2E41',
-    primary: '#FCCD2A',
+    primary: '#009EDD',
     secondary: '#1E5084',
     tertiary: '#999',
     warning: '#FAAD14',
-    success: '#52C41A',
+    success: '#039B00',
     error: '#CC1010',
     white: '#fff',
     black: '#000',
-    gray: '#E8E8E8',
+    fontGray: '#333',
   },
   border: {
     radius: {
