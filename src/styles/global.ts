@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
     }
     html,
     body {
-      background: ${theme.colors.background};
+      background: ${theme.colors.secondary};
       font-size: 62.5%;
       font-family: 'Open Sans', sans-serif;
       ul {

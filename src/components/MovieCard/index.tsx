@@ -1,5 +1,6 @@
 import Button from '@components/Button';
 import shoppingCartIcon from '@assets/icons/shoppingCartIcon.svg';
+import { formatToBRL } from '@utils/numbers';
 import * as S from './styles';
 import { MovieCardProps } from './types';
 
@@ -8,7 +9,7 @@ function MovieCard({ movie, itemQuantity, onClick }: MovieCardProps) {
     <S.Wrapper>
       <S.MovieCover src={movie.image} />
       <S.Title>{movie.title}</S.Title>
-      <S.Price>{movie.title}</S.Price>
+      <S.Price>{formatToBRL(movie.price)}</S.Price>
       <S.ButtonWrapper>
         <Button
           onClick={onClick}

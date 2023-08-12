@@ -1,6 +1,7 @@
 import bagIcon from '@assets/icons/bagIcon.svg';
 import useAppSelector from '@hooks/useAppSelector';
 import { pluralize } from '@utils/strings';
+import { RoutesEnum } from '@routes/routes';
 import * as S from './styles';
 
 function HeaderMenu() {
@@ -13,8 +14,8 @@ function HeaderMenu() {
 
   return (
     <S.Wrapper>
-      <S.WeMovies>WeMovies</S.WeMovies>
-      <S.CartWrapper>
+      <S.WeMovies to={RoutesEnum.Home}>WeMovies</S.WeMovies>
+      <S.CartWrapper to={RoutesEnum.Cart}>
         <S.WordsWrapper>
           <S.MyCart>Meu Carrinho</S.MyCart>
           <S.ItemsQuantity>

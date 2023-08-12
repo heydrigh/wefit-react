@@ -8,9 +8,8 @@ export default {
     huge: '5.6rem',
   },
   colors: {
-    background: '#2F2E41',
     primary: '#009EDD',
-    secondary: '#1E5084',
+    secondary: '#2F2E41',
     tertiary: '#999',
     warning: '#FAAD14',
     success: '#039B00',
@@ -18,6 +17,7 @@ export default {
     white: '#fff',
     black: '#000',
     fontGray: '#333',
+    borderGray: '#D9D9D9',
   },
   border: {
     radius: {

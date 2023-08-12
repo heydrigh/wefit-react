@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 export const Wrapper = styled.nav`
@@ -8,18 +9,20 @@ export const Wrapper = styled.nav`
   padding: 1.8rem 1rem;
 `;
 
-export const WeMovies = styled.span`
+export const WeMovies = styled(Link)`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     font-size: ${theme.fonts.sizes.large};
     font-weight: ${theme.fonts.weight.bold};
+    text-decoration: none;
   `}
 `;
 
-export const CartWrapper = styled.div`
+export const CartWrapper = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
 `;
 
 export const WordsWrapper = styled.div`
@@ -29,7 +32,7 @@ export const WordsWrapper = styled.div`
   align-items: flex-end;
 `;
 
-export const MyCart = styled.span`
+export const MyCart = styled.p`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     font-size: ${theme.fonts.sizes.small};
