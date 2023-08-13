@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import withLayout from 'hocs/withLayout';
 import binIcon from '@assets/icons/trashbin.svg';
 import useAppSelector from '@hooks/useAppSelector';
@@ -14,6 +15,7 @@ import Button from '@components/Button';
 import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { RoutesEnum } from '@routes/routes';
+import MediaMatch from '@components/MediaMatch';
 import * as S from './styles';
 import { calculateTotalPrice } from './utils';
 import EmptyCart from './components/EmptyCart';
@@ -48,23 +50,51 @@ function Cart() {
     <S.Container>
       <S.Grid>
         <S.Row>
-          <S.Column columns={7}>
+          <S.Column displayOn='desktop' columns={7}>
             <S.Heading>PRODUTO</S.Heading>
           </S.Column>
 
-          <S.Column columns={2}>
+          <S.Column displayOn='desktop' columns={2}>
             <S.Heading>QTD</S.Heading>
           </S.Column>
 
-          <S.Column columns={2}>
+          <S.Column displayOn='desktop' columns={2}>
             <S.Heading>SUBTOTAL</S.Heading>
           </S.Column>
-          <S.Column columns={1} />
+          <S.Column displayOn='desktop' columns={1} />
         </S.Row>
 
         {items.map((item) => (
           <S.Row key={item.id}>
-            <S.Column columns={7}>
+            {/* Mobile layout */}
+            <S.Column displayOn='mobile' columns={3}>
+              <S.Cover src={item.image} />
+            </S.Column>
+
+            <S.Column displayOn='mobile' columns={10}>
+              <S.ProductMobileWrapper>
+                <S.Title>{item.title}</S.Title>
+                <S.Price>{formatToBRL(item.price)}</S.Price>
+                <S.BinButton onClick={() => handleDeleteButton(item.id)}>
+                  <S.BinIcon src={binIcon} alt='Delete item' />
+                </S.BinButton>
+              </S.ProductMobileWrapper>
+              <S.ProductMobileWrapper>
+                <InputQuantity
+                  onIncrease={() => handleIncreaseButton(item.id)}
+                  onDecrease={() => handleDecreaseButton(item.id)}
+                  value={item.quantity}
+                />
+                <S.SubTotalMobileWrapper>
+                  <S.Heading>SUBTOTAL</S.Heading>
+                  <S.Price>{formatToBRL(item.price * item.quantity)}</S.Price>
+                </S.SubTotalMobileWrapper>
+              </S.ProductMobileWrapper>
+            </S.Column>
+
+            {/* Desktop layout */}
+
+            <S.Column displayOn='desktop' columns={7}>
               <S.ContentWrapper>
                 <S.Cover src={item.image} />
                 <S.Details>
@@ -74,7 +104,7 @@ function Cart() {
               </S.ContentWrapper>
             </S.Column>
 
-            <S.Column columns={2}>
+            <S.Column displayOn='desktop' columns={2}>
               <InputQuantity
                 onIncrease={() => handleIncreaseButton(item.id)}
                 onDecrease={() => handleDecreaseButton(item.id)}
@@ -82,11 +112,11 @@ function Cart() {
               />
             </S.Column>
 
-            <S.Column columns={2}>
+            <S.Column displayOn='desktop' columns={2}>
               <S.Price>{formatToBRL(item.price * item.quantity)}</S.Price>
             </S.Column>
 
-            <S.Column columns={1} justifyContent='flex-end'>
+            <S.Column displayOn='desktop' columns={1} justifyContent='flex-end'>
               <S.BinButton onClick={() => handleDeleteButton(item.id)}>
                 <S.BinIcon src={binIcon} alt='Delete item' />
               </S.BinButton>

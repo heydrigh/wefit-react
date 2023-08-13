@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
+import media from 'styled-media-query';
 
 export const Wrapper = styled.nav`
   display: flex;
@@ -18,13 +19,6 @@ export const WeMovies = styled(Link)`
   `}
 `;
 
-export const CartWrapper = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-`;
-
 export const WordsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,6 +31,10 @@ export const MyCart = styled.p`
     color: ${theme.colors.white};
     font-size: ${theme.fonts.sizes.small};
     font-weight: ${theme.fonts.weight.semiBold};
+
+    ${media.lessThan('small')`
+      display: none;
+    `}
   `}
 `;
 
@@ -50,4 +48,22 @@ export const ItemsQuantity = styled.span`
 
 export const BagIcon = styled.img`
   margin-left: 0.8rem;
+`;
+
+export const CartWrapper = styled(Link)`
+  ${({ theme }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    &:hover {
+      ${MyCart} {
+        color: ${theme.colors.white};
+      }
+
+      ${ItemsQuantity} {
+        color: ${theme.colors.tertiary};
+      }
+    }
+  `}
 `;

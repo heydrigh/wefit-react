@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -6,11 +7,11 @@ export const Wrapper = styled.div`
   gap: 1.6rem;
   grid-template-columns: 1fr;
 
-  @media (min-width: 600px) {
+  ${media.greaterThan('small')`
     grid-template-columns: repeat(2, 1fr);
-  }
+  `}
 
-  @media (min-width: 900px) {
+  ${media.greaterThan('medium')`
     grid-template-columns: repeat(3, 1fr);
-  }
+  `}
 `;

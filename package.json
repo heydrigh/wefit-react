@@ -25,6 +25,7 @@
     "react-scripts": "5.0.1",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.0.0-rc.3",
+    "styled-media-query": "^2.1.2",
     "typescript": "*",
     "web-vitals": "^2.1.4"
   },
